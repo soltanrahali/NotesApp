@@ -1,0 +1,46 @@
+<mat-toolbar>
+    <div class="inputSearch">
+       <input type="text">
+    </div>
+    <button class="searchbuttn">Search by date</button>
+   
+    <div class="pr-sec">
+        <div class="profile">
+            <div class="avatar" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+                <mat-icon>account_circle</mat-icon>
+                <div class="menu" *ngIf="menuVisible">
+                    <div (click)="logout()" class="pr-icon">Logout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
+  
+<mat-sidenav-container class="landing-container">
+    <mat-sidenav mode="side" class="sidebar" opened>
+        <div class="sideContent">
+            <div
+            class="sideButtns"
+             (click)="goToAll()">
+                All notes
+            </div>
+            <div class="sideButtns">
+                Add note
+            </div>
+            <button 
+            mat-icon-button 
+            class="example-icon" 
+            (click)="backClicked()"
+            aria-label="Example icon-button with menu icon" *ngIf="router.url !== '/home'">
+          Back
+        </button>
+        </div>
+    </mat-sidenav> 
+    <mat-sidenav-content class="main-container">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="footer-c">
+    <p>@copy right</p>
+</div>
+  

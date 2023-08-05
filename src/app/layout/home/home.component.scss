@@ -1,0 +1,108 @@
+.mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    margin-left: 17em;
+    line-height: 40px;
+    border-radius: 50%;
+}
+.example-icon {
+    padding: 0;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    /* margin-left: 17em; */
+    margin: 5em 6.4em;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #b0b0cd;
+}
+.pr-sec{
+    right: 145px;
+    margin-top: 8px;
+    position: absolute;
+    .profile{
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        .avatar{
+            position: relative;
+            z-index: 200;
+            .menu{
+                position: absolute;
+                // top: calc(100% + 10px);
+                background-color: rgb(255, 255, 255);
+                .pr-icon{
+                    height: 30px;
+                    background-color: #e7e7ee;
+                    width: 125px;
+                    padding-left: 12px;
+                    margin: 6px;
+                }
+            }
+            ::ng-deep .material-icons {
+                font-family: 'Material Icons';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 48px;
+                line-height: 1;
+                letter-spacing: normal;
+                text-transform: none;
+                display: inline-block;
+                white-space: nowrap;
+                word-wrap: normal;
+                direction: ltr;
+                -webkit-font-feature-settings: 'liga';
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+    }
+}
+
+.landing-container{
+    background-color: #fff;
+    min-height: calc(100% - 150px);
+    
+    .sidebar{
+        min-width: 256px;
+        overflow: hidden !important;
+    }
+    .main-container {
+        flex-grow: 1;
+        .content{
+            padding: 24px;
+        }
+    }
+    .header-c{
+        background-color: rgb(169, 248, 248);
+        width: 500px;
+        height: 200px;
+    }
+}
+.footer-c{
+    width: 100%;
+    background-color: #302b49;
+    color: white;
+    text-align: center;
+    height: 36px;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    font-size: xx-small;
+}
+.inputSearch{
+    margin-left: 24%;
+}
+.searchbuttn{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.sideButtns{
+        /* background-color: #302b49; */
+        margin: 2em 5em;
+        /* border: 1px solid blue; */
+        font-weight: bolder;
+}

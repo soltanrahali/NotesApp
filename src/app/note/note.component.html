@@ -1,0 +1,28 @@
+<div>
+    <div>
+        <div class="header-title">
+            <p>
+                {{ note.title }}
+            </p>
+        </div>
+        <p class="dash-detail">
+            {{ note.body }}
+        </p>
+        <p class="dash-detail">
+            Date: {{ note.createdAt }}
+        </p>
+    </div> 
+    <div class="btn-visit">
+        <button 
+            (click)="favChange()"
+            mat-raised-button 
+            color="primary">
+            {{ favoriteButton }}
+        </button>  
+        <button mat-raised-button color="primary">View</button>  
+        <button mat-raised-button color="primary">Edit</button>  
+        <button mat-raised-button color="primary">Delete</button>  
+    </div>
+</div>
+
+<!-- Note title(string)  body(string). Date.   Favorite(boolean). noteId(number) -->

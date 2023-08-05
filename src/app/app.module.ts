@@ -32,8 +32,11 @@ import { HomeComponent } from './layout/home/home.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AuthGuard } from './auth-guard.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import { NoteComponent } from './note/note.component';
+import { ListOfNotesComponent } from './list-of-notes/list-of-notes.component';
+import { HttpInterceptorService } from './http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import { RegisterComponent } from './register/register.component';
     DashboardComponent,
     FooterComponent,
     RegisterComponent,
+    NoteComponent,
+    ListOfNotesComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,14 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     BrowserAnimationsModule,
   ],
-  providers: [ AuthGuard],
+  providers: [ 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

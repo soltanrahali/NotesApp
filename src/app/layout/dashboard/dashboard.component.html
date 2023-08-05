@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="message">
+        <p>Welcome {{ username }}, here are your favorite and recent notes.</p>
+        <mat-divider></mat-divider>
+    </div>
+    <div class="tagType">Favorite</div>
+    <mat-card [style.overflow]="'auto'" [style.height.px]="'270'">
+        <div *ngIf="favoriteData.length != '0'">
+            <mat-card-content>
+                <div *ngFor="let note of favoriteData; let i = index;">
+                    <app-note  (reloadParent)="load()"  [note]="note"></app-note>
+                </div>
+            </mat-card-content>
+        </div>
+        <div *ngIf="favoriteData.length == '0'">No data</div>
+    </mat-card> 
+    <div><br/><mat-divider></mat-divider></div>
+
+    <div class="tagType">Recent</div>
+
+    <mat-card [style.overflow]="'auto'" [style.height.px]="'270'">
+        <div *ngIf="recentNote.length != '0'">
+            <mat-card-content>
+                <div *ngFor="let note of recentNote; let i = index;">
+                    <app-note  (reloadParent)="load()"  [note]="note"></app-note>
+                </div>
+            </mat-card-content>
+        </div>
+        <div *ngIf="recentNote.length == '0'">No data</div>
+    </mat-card>
+</div>  

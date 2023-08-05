@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="message">
+        <p>All Notes</p>
+        <mat-divider></mat-divider>
+    </div>
+    <!-- <div class="tagType">Favorite</div> -->
+    <mat-card [style.overflow]="'auto'" [style.height.px]="'739'">
+        <mat-card-content>
+            <div *ngFor="let note of tableData; let i = index;">
+                <app-note (reloadParent)="loadNotes()" [note]="note"></app-note>
+                <mat-divider></mat-divider>
+            </div>
+           
+        </mat-card-content>
+    </mat-card> 
+</div>
