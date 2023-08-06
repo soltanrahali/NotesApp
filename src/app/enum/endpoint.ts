@@ -5,5 +5,7 @@ export const endpoint  = {
     ALL_NOTE: 'notes',
     FAVORITES: 'favorites',
     RECENT: 'recent',
-    NOTE: 'note'
+    NOTE: 'note',
+    CREATE_NOTE: 'addnote',
+    DELETE_NOTE: 'deleteNote'
 }   

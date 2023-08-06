@@ -1,0 +1,38 @@
+<div class="container">
+    <div mat-dialog-title class="header">
+        Create Note
+    </div>
+    <div class="cont">
+    <div mat-dialog-content>
+        <form [formGroup]="noteForm">
+        <div class="container">
+            <p>Please fill in this form to create note.</p>
+            <hr>
+        
+            <label for="email"><b>Title</b></label>
+            <input type="text" placeholder="Enter title" formControlName="title"  required>
+
+            <label for="name"><b>Body</b></label>
+            <div class="fav">
+                <textarea type="text" rows="6" cols="68" placeholder="Enter body" formControlName="body" required></textarea>
+            </div>
+            <div>
+                <label for="lname"><b>Favorite</b></label>
+            </div>
+             <div class="fav">
+                <mat-radio-group aria-label="Select an option" formControlName="favorite">
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <hr>
+        
+            <!-- <button type="submit" (click)="createNote()" class="registerbtn">Create</button> -->
+            <div class="btn-visit">
+                <button mat-raised-button (click)="createNote()" class="registerbtn">{{ buttonContent }}</button>
+            </div>
+        </div> 
+        </form>
+    </div>
+    </div>
+</div>

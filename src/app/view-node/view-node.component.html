@@ -1,0 +1,24 @@
+<div>
+    <div>
+        <div class="header-title">
+            <p>
+               {{ ifdata.title }}
+            </p>
+        </div>
+        <p class="dash-detail">
+            {{ ifdata.body }}
+        </p>
+        <p class="dash-detail">
+            Date:  {{ ifdata.createdAt }}
+        </p>
+    </div> 
+    <div class="btn-visit">
+        <button 
+            mat-dialog-close
+            mat-raised-button 
+            color="primary">
+            Close
+        </button>  
+          
+    </div>
+</div>

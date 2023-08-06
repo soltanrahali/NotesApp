@@ -1,0 +1,18 @@
+.btn-visit{
+    text-align: end;
+    
+    ::ng-deep .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+        margin-right: 10px;
+    }
+    margin-bottom: 13px;
+}
+.header-title{
+    color:  #302b49;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: x-large;
+}
+.dash-detail{
+    color: #6b6b6b8f;
+    text-align: left;
+}

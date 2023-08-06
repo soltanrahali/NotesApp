@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth-guard.service';
+import { CreateNoteComponent } from './create-note/create-note.component';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { HomeComponent } from './layout/home/home.component';
 import { LoginComponent } from './layout/login/login.component';
@@ -16,6 +17,8 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent, canActivate: [AuthGuard]},
       { path: 'all', component: ListOfNotesComponent, canActivate: [AuthGuard]},
+      { path: 'create', component: CreateNoteComponent, canActivate: [AuthGuard]},
+      { path: 'edit/:id', component: CreateNoteComponent,  canActivate: [AuthGuard]},
     ]
   }
 ];

@@ -1,8 +1,14 @@
 <mat-toolbar>
     <div class="inputSearch">
-       <input type="text">
+       <input [(ngModel)]="datesearch" type="text">
     </div>
-    <button class="searchbuttn">Search by date</button>
+    <button class="searchbuttn" (click)="searchByDate()">Search by date</button>
+    <ul>
+        <!-- <li *ngFor="let entity of searchResults">{{ entity | json }}</li> -->
+        <li *ngFor="let entity of searchResults">
+            <app-note [note]="entity"></app-note> 
+        </li>
+    </ul>
    
     <div class="pr-sec">
         <div class="profile">
@@ -24,7 +30,9 @@
              (click)="goToAll()">
                 All notes
             </div>
-            <div class="sideButtns">
+            <div 
+            (click)="goToCreate()"
+            class="sideButtns">
                 Add note
             </div>
             <button 
@@ -32,7 +40,7 @@
             class="example-icon" 
             (click)="backClicked()"
             aria-label="Example icon-button with menu icon" *ngIf="router.url !== '/home'">
-          Back
+          Home
         </button>
         </div>
     </mat-sidenav> 

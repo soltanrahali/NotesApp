@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { DataShareService } from 'src/app/data-share.service';
 import { AuthenticationGaurd } from 'src/app/services/authentication-guard.service';
+import { NoteService } from 'src/app/services/note.service';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,14 @@ import { AuthenticationGaurd } from 'src/app/services/authentication-guard.servi
 })
 export class HomeComponent implements OnInit {
 
+  datesearch!: string;
+  searchResults!: any
+
   constructor(
     public router: Router, 
     private authentic: AuthenticationGaurd,
-    private location: Location
+    private location: Location,
+    private noteService: NoteService
     ) { }
 
   menuVisible = false;
@@ -23,8 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   backClicked() {
-    // this.router.navigate(['/home'])
-    this.location.back();
+   this.router.navigate(['/home'])
   }
 
   mouseEnter(){
@@ -41,6 +45,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/home/all"])
   }
 
+  goToCreate(){
+    this.router.navigate(["/home/create"])
+  }
+
   logout(){
     this.authentic.logoutUser().subscribe((response) => {
       console.log(response)
@@ -50,6 +58,12 @@ export class HomeComponent implements OnInit {
     });
     this.authentic.removeUserInfoUpOnLogout();
     this.router.navigate([""])
+  }
+
+  searchByDate(){
+    this.noteService.searchByDate(this.datesearch).subscribe((data: any) => {
+      this.searchResults = [...data];
+    })
   }
 
 }

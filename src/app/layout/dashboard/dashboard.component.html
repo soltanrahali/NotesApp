@@ -9,6 +9,7 @@
             <mat-card-content>
                 <div *ngFor="let note of favoriteData; let i = index;">
                     <app-note  (reloadParent)="load()"  [note]="note"></app-note>
+                    <mat-divider></mat-divider>
                 </div>
             </mat-card-content>
         </div>
@@ -23,6 +24,7 @@
             <mat-card-content>
                 <div *ngFor="let note of recentNote; let i = index;">
                     <app-note  (reloadParent)="load()"  [note]="note"></app-note>
+                    <mat-divider></mat-divider>
                 </div>
             </mat-card-content>
         </div>
