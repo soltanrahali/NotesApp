@@ -6,6 +6,10 @@
             <mat-error *ngIf="!loginValid">
             The username and password were not recognized
             </mat-error>
+            <mat-error *ngIf="passwordCheckfail">
+                Wrong Confirm password 
+            </mat-error>    
+            <span *ngIf="successMessage.length != 0">{{ successMessage }}</span>
             <mat-form-field>
                 <input matInput placeholder="User name" [(ngModel)]="username" name="username" required>
                 <mat-error>
@@ -19,12 +23,12 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="password" placeholder="Confirm password" [(ngModel)]="password" name="password" required>
+                <input matInput type="password" placeholder="Confirm password" [(ngModel)]="cpassword" name="password" required>
                 <mat-error>
                     Please confirm password
                 </mat-error>
             </mat-form-field>
-            <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+            <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Register</button>
         </form>
         </mat-card-content>
         <br/>

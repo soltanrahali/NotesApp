@@ -40,6 +40,7 @@ import { HttpInterceptorService } from './http-interceptor.service';
 import { CreateNoteComponent } from './create-note/create-note.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { ViewNodeComponent } from './view-node/view-node.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ViewNodeComponent } from './view-node/view-node.component';
     ListOfNotesComponent,
     CreateNoteComponent,
     ViewNodeComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,

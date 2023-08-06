@@ -1,23 +1,25 @@
 <mat-toolbar>
     <div class="inputSearch">
-       <input [(ngModel)]="datesearch" type="text">
+       <input class="inheight" [(ngModel)]="datesearch" type="text">
     </div>
-    <button class="searchbuttn" (click)="searchByDate()">Search by date</button>
-    <ul>
-        <!-- <li *ngFor="let entity of searchResults">{{ entity | json }}</li> -->
+    <button  mat-raised-button color="primary" class="searchbuttn" (click)="searchByDate()">Search by date</button>
+    <ul class="search-results" *ngIf="searchResults.length > 0 && datesearch.length!=0">
         <li *ngFor="let entity of searchResults">
-            <app-note [note]="entity"></app-note> 
+            <app-search-result [note]="entity"></app-search-result> 
         </li>
     </ul>
    
     <div class="pr-sec">
         <div class="profile">
-            <div class="avatar" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+            <div (click)="logout()" class="pr-icon">
+                <a href="#">Logout</a>
+            </div>
+            <!-- <div class="avatar" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
                 <mat-icon>account_circle</mat-icon>
                 <div class="menu" *ngIf="menuVisible">
                     <div (click)="logout()" class="pr-icon">Logout</div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </mat-toolbar>
@@ -25,6 +27,11 @@
 <mat-sidenav-container class="landing-container">
     <mat-sidenav mode="side" class="sidebar" opened>
         <div class="sideContent">
+            <div 
+            (click)="backClicked()"
+            class="sideButtns">
+            Home
+            </div>
             <div
             class="sideButtns"
              (click)="goToAll()">
@@ -35,13 +42,7 @@
             class="sideButtns">
                 Add note
             </div>
-            <button 
-            mat-icon-button 
-            class="example-icon" 
-            (click)="backClicked()"
-            aria-label="Example icon-button with menu icon" *ngIf="router.url !== '/home'">
-          Home
-        </button>
+        
         </div>
     </mat-sidenav> 
     <mat-sidenav-content class="main-container">

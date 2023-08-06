@@ -23,6 +23,11 @@ export class AuthenticationGaurd {
         return this.httpClient.post(url, user,  { responseType: 'json' });
     }
 
+    registerUser(user: any){
+        const url = this.backend + endpoint.REGISTER_USER;
+        return this.httpClient.post(url, user,  { responseType: 'json' });
+    }
+
     holdUser(user: any){
         console.log('hold user info in service call ', user)
         localStorage.setItem('userinfo', JSON.stringify(user));

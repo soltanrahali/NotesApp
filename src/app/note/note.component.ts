@@ -60,16 +60,25 @@ export class NoteComponent implements OnInit {
       panelClass: 'custom-dialog-container',
       data: this.note,
       position: {
-        left: '31%',
-        top: '90px'
+        left: '24%',
+        top: '48px'
       },  
-      width: '800px',
+      width: '53%',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-       
+    dialogRef.componentInstance.eventEmitter.subscribe((eventData: any) => {
+      // Handle the event data emitted by the dialog component
+      console.log('Event data received:', eventData);
+      if(eventData == 'edit'){
+        dialogRef.close();
+        this.editNote();
+      }
+      if(eventData == 'delete'){
+        dialogRef.close();
+        this.deleteNote();
+      }
     });
+     
 
   }
 }

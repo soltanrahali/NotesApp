@@ -19,16 +19,25 @@ export class NoteService {
 
     // get all notes
     getAllNotes(){
-        return this.httpClient.get(this.url + endpoint.ALL_NOTE);
+        const userInfo = localStorage.getItem('userinfo');
+        const  parsedUserInfo = JSON.parse(userInfo!);
+        const userId = parsedUserInfo.userId;
+        return this.httpClient.get(this.url + endpoint.ALL_NOTE + `/${userId}`);
     }
 
     // get all FAVORITES
     getAllFav(){
-        return this.httpClient.get(this.url + endpoint.FAVORITES);
+        const userInfo = localStorage.getItem('userinfo');
+        const  parsedUserInfo = JSON.parse(userInfo!);
+        const userId = parsedUserInfo.userId;
+        return this.httpClient.get(this.url + endpoint.FAVORITES + `/${userId}`);
     }
 
     getRecent(){
-        return this.httpClient.get(this.url + endpoint.RECENT);
+        const userInfo = localStorage.getItem('userinfo');
+        const  parsedUserInfo = JSON.parse(userInfo!);
+        const userId = parsedUserInfo.userId;
+        return this.httpClient.get(this.url + endpoint.RECENT + `/${userId}`);
     }
 
     favoriteChange(id: number, fav: string){
@@ -38,7 +47,10 @@ export class NoteService {
     }
 
     createNote(body: any){
-        return this.httpClient.post(this.url + endpoint.CREATE_NOTE, body);
+        const userInfo = localStorage.getItem('userinfo');
+        const  parsedUserInfo = JSON.parse(userInfo!);
+        const userId = parsedUserInfo.userId;
+        return this.httpClient.post(this.url + endpoint.CREATE_NOTE + `/${userId}`, body);
     }
 
     deleteNote(id: number){
@@ -55,7 +67,9 @@ export class NoteService {
 
     searchByDate(date: string){
         const params = new HttpParams().set('date', date);
-
-       return this.httpClient.get(this.url + endpoint.NOTE + '/search', { params } )
+        const userInfo = localStorage.getItem('userinfo');
+        const  parsedUserInfo = JSON.parse(userInfo!);
+        const userId = parsedUserInfo.userId;
+       return this.httpClient.get(this.url + endpoint.NOTE + '/search' + `/${userId}`, { params } )
     }
 }

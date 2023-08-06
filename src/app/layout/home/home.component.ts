@@ -13,7 +13,7 @@ import { NoteService } from 'src/app/services/note.service';
 export class HomeComponent implements OnInit {
 
   datesearch!: string;
-  searchResults!: any
+  searchResults: any = [];
 
   constructor(
     public router: Router, 
@@ -63,6 +63,8 @@ export class HomeComponent implements OnInit {
   searchByDate(){
     this.noteService.searchByDate(this.datesearch).subscribe((data: any) => {
       this.searchResults = [...data];
+      console.log("==========>")
+      console.log(this.searchResults)
     })
   }
 

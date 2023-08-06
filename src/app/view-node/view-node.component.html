@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <div>
         <div class="header-title">
             <p>
@@ -13,6 +13,12 @@
         </p>
     </div> 
     <div class="btn-visit">
+        <button mat-raised-button color="primary" (click)="editNote()">Edit</button>  
+        <button 
+            (click)="deleteNote()"
+            mat-raised-button color="primary">
+            Delete
+        </button>  
         <button 
             mat-dialog-close
             mat-raised-button 

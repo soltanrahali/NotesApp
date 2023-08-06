@@ -22,33 +22,35 @@ export class RegisterComponent implements OnInit {
  
   username = "";
   password = ""; 
-
+  cpassword = ""; 
+  successMessage = "";
+  
+  passwordCheckfail = false;
+  
   ngOnInit(): void {
   }
 
   onSubmit(){
-
-    const user = {
-      username: this.username,
-      password: this.password
-    } 
-    console.log("User ", user)
-    this.auth.loginUser(user).subscribe(  
-      (res: any) => {   
-        console.log(res)
-        const response = res.response.body;
-        const userInf = {
-          username: response.name,
-          password: this.password,
-        };
-        this.data.userInfo = userInf;
-        this.auth.holdUser(this.data.getUser());
-        this.router.navigateByUrl('/home');        
-      },  
-      (      error: any) => {  
-        this.loginValid = false;  
-        console.log(error)
-      }  
-   );   
+    if(this.password != this.cpassword){
+      this.passwordCheckfail = true;  
+    }else{
+      const user = {
+        username: this.username,
+        password: this.password
+      } 
+      console.log("User ", user)
+      this.auth.registerUser(user).subscribe(  
+        (res: any) => {   
+          console.log(res)
+          this.passwordCheckfail = false;  
+          this.successMessage = "Registerd successfully";
+          this.router.navigateByUrl('/');        
+        },  
+        (error: any) => {  
+          this.loginValid = false;  
+          console.log(error)
+        }  
+     );   
+    }
   }
 }

@@ -3,7 +3,9 @@
         <p>Welcome {{ username }}, here are your favorite and recent notes.</p>
         <mat-divider></mat-divider>
     </div>
-    <div class="tagType">Favorite</div>
+    <div class="tagType">
+        <h3>Favorite</h3>
+    </div>
     <mat-card [style.overflow]="'auto'" [style.height.px]="'270'">
         <div *ngIf="favoriteData.length != '0'">
             <mat-card-content>
@@ -17,7 +19,7 @@
     </mat-card> 
     <div><br/><mat-divider></mat-divider></div>
 
-    <div class="tagType">Recent</div>
+    <div class="tagType"><h3>Recent</h3></div>
 
     <mat-card [style.overflow]="'auto'" [style.height.px]="'270'">
         <div *ngIf="recentNote.length != '0'">
