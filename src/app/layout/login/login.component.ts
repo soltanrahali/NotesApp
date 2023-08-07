@@ -33,29 +33,54 @@ export class LoginComponent implements OnInit {
       password: this.password
     } 
     console.log("User ", user)
-    this.auth.loginUser(user).subscribe(  
-      (res: any) => {   
-        console.log(res)
-        const response = res;
-        const userInf = {
-          username: response.username,
-          password: this.password,
-          userId: response.userId,
-        };
-        this.data.userInfo = userInf;
-        console.log("********")
-        console.log(userInf)
-        console.log(this.data)
-        console.log(this.data.getUser())
-        console.log("********")
-        this.auth.holdUser(this.data.getUser());
-        this.router.navigateByUrl('/home');        
-      },  
-      error => {  
-        this.loginValid = false;  
-        console.log(error)
-      }  
-   );   
-  }
+    this.auth.loginUser().subscribe((data)=>{
+      console.log("data is lis")
+      console.log(data)
+      for(let i=0; i < data.length; i++){
+        if(user.username == data[i].username && user.password == data[i].password){
+          console.log(data[i].username)
+          console.log(data[i].password)
+          console.log(user.username)
+          console.log(user.password)
+          console.log("UIUIUIUIUI")
+          this.isAuthenticated = true;
+          // this.router.navigate(['home']); 
+          this.router.navigateByUrl('/home');       
+          break
+        }
+      }
+    },
+    error => {
+      this.loginValid = false;  
+      console.log("User does not exist or password does not match!")
+    });
 
+    if(this.isAuthenticated == false){
+      this.loginValid = false;  
+    }
+
+  //   this.auth.loginUser(user).subscribe(  
+  //     (res: any) => {   
+  //       console.log(res)
+  //       const response = res;
+  //       const userInf = {
+  //         username: response.username,
+  //         password: this.password,
+  //         userId: response.userId,
+  //       };
+  //       this.data.userInfo = userInf;
+  //       console.log("********")
+  //       console.log(userInf)
+  //       console.log(this.data)
+  //       console.log(this.data.getUser())
+  //       console.log("********")
+  //       this.auth.holdUser(this.data.getUser());
+  //       this.router.navigateByUrl('/home');        
+  //     },  
+  //     error => {  
+  //       this.loginValid = false;  
+  //       console.log(error)
+  //     }  
+  //  );   
+  }
 }

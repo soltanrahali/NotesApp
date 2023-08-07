@@ -17,15 +17,14 @@ export class AuthenticationGaurd {
 
     backend: string = environment.backendUrl;
 
-    loginUser(user: any){
+    loginUser(): Observable<any>{
         console.log("Inside the service loginUser")
-        const url = this.backend + endpoint.AUTH_USER;
-        return this.httpClient.post(url, user,  { responseType: 'json' });
+        return this.httpClient.get('http://localhost:3000/users');
     }
 
     registerUser(user: any){
         const url = this.backend + endpoint.REGISTER_USER;
-        return this.httpClient.post(url, user,  { responseType: 'json' });
+        return this.httpClient.post('http://localhost:3000/users', user,  { responseType: 'json' });
     }
 
     holdUser(user: any){
@@ -35,12 +34,8 @@ export class AuthenticationGaurd {
     }
 
     isUserLoggedIn(): Boolean {
-        console.log('isUserLoggedIn')
-        console.log(localStorage.getItem('userinfo'))
-        if(localStorage.getItem('userinfo')){
-            return true
-        }
-        return false;
+       return true
+     
     }
 
     logoutUser(){

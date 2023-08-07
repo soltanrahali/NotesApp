@@ -22,54 +22,45 @@ export class NoteService {
         const userInfo = localStorage.getItem('userinfo');
         const  parsedUserInfo = JSON.parse(userInfo!);
         const userId = parsedUserInfo.userId;
-        return this.httpClient.get(this.url + endpoint.ALL_NOTE + `/${userId}`);
+        return this.httpClient.get("http://localhost:3000/note_note");
     }
 
-    // get all FAVORITES
-    getAllFav(){
-        const userInfo = localStorage.getItem('userinfo');
-        const  parsedUserInfo = JSON.parse(userInfo!);
-        const userId = parsedUserInfo.userId;
-        return this.httpClient.get(this.url + endpoint.FAVORITES + `/${userId}`);
-    }
-
-    getRecent(){
-        const userInfo = localStorage.getItem('userinfo');
-        const  parsedUserInfo = JSON.parse(userInfo!);
-        const userId = parsedUserInfo.userId;
-        return this.httpClient.get(this.url + endpoint.RECENT + `/${userId}`);
-    }
-
-    favoriteChange(id: number, fav: string){
-        const params = new HttpParams().set('favorite', fav);
-
-        return this.httpClient.put(this.url + endpoint.NOTE + `/${id}/favorite`,  null, { params });
+   
+    favoriteChange(note: any){
+        const n = {
+            title : note.title,
+            body : note.body,
+            favorite : note.favorite,
+            date: note.date
+        }
+        return this.httpClient.put('http://localhost:3000/note_note/' + `${note.id}`, n, { headers: { '_method': 'PATCH' }});
     }
 
     createNote(body: any){
         const userInfo = localStorage.getItem('userinfo');
         const  parsedUserInfo = JSON.parse(userInfo!);
         const userId = parsedUserInfo.userId;
-        return this.httpClient.post(this.url + endpoint.CREATE_NOTE + `/${userId}`, body);
+        return this.httpClient.post('http://localhost:3000/note_note', body)
+        // return this.httpClient.post(this.url + endpoint.CREATE_NOTE + `/${userId}`, body);
     }
 
     deleteNote(id: number){
-        return this.httpClient.delete(this.url + endpoint.DELETE_NOTE + `/${id}`);
+        return this.httpClient.delete('http://localhost:3000/note_note' + `/${id}`);
     }
     
     getDataById(id: number): Observable<any> {
-        return this.httpClient.get<any>(`${this.url}${endpoint.NOTE}/${id}`);
+        return this.httpClient.get<any>('http://localhost:3000/note_note' + `/${id}`);
     }
 
     editNote(id: number, note: any){
-        return this.httpClient.put(this.url + endpoint.NOTE + `/${id}`, note);
+        const n = {
+            title : note.title,
+            body : note.body,
+            favorite : note.favorite,
+            date: note.date
+        }
+        return this.httpClient.put('http://localhost:3000/note_note/' + `${id}`, n, { headers: { '_method': 'PATCH' }});
     }
 
-    searchByDate(date: string){
-        const params = new HttpParams().set('date', date);
-        const userInfo = localStorage.getItem('userinfo');
-        const  parsedUserInfo = JSON.parse(userInfo!);
-        const userId = parsedUserInfo.userId;
-       return this.httpClient.get(this.url + endpoint.NOTE + '/search' + `/${userId}`, { params } )
-    }
+   
 }

@@ -35,12 +35,12 @@ export class SearchResultComponent implements OnInit {
   }
 
   favChange(){
-    const vaf = !this.note.favorite + '';
-    this.noteService.favoriteChange(this.note.noteId, vaf).subscribe((data: any) => {
-      console.log("Data Node is -->")
-      console.log(data)
-      this.reloadParent.emit();
-    })
+    // const vaf = !this.note.favorite + '';
+    // this.noteService.favoriteChange().subscribe((data: any) => {
+    //   console.log("Data Node is -->")
+    //   console.log(data)
+    //   this.reloadParent.emit();
+    // })
     
   }
 
@@ -51,7 +51,7 @@ export class SearchResultComponent implements OnInit {
   }
 
   editNote(){
-    this.router.navigateByUrl(`/home/edit/${this.note.noteId}`);   
+    this.router.navigateByUrl(`/home/edit/${this.note.id}`);   
   }
 
   viewNote(event:any){

@@ -32,20 +32,26 @@ export class DashboardComponent implements OnInit {
   }
 
   loadFavorite(){
-    this.noteService.getAllFav().subscribe((data: any) => {
+    this.noteService.getAllNotes().subscribe((data: any) => {
       console.log('data is')
       console.log(data)
 
-      this.favoriteData = [...data];
+      this.favoriteData = data.filter((d: any) => d.favorite == true ||  d.favorite == 'true');
+
+      // this.favoriteData = [...data];
     })
   }
 
+  isBigEnough(element: any, index: number, array: []) { 
+    return (element.favorite == true); 
+ } 
+
   loadRecent3(){
-    this.noteService.getRecent().subscribe((data: any) => {
+    this.noteService.getAllNotes().subscribe((data: any) => {
       console.log('data is')
       console.log(data)
 
-      this.recentNote = [...data];
+      this.recentNote = [...data.slice(-3)];
     })
   }
 

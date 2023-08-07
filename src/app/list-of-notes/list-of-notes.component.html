@@ -5,12 +5,16 @@
     </div>
     <!-- <div class="tagType">Favorite</div> -->
     <mat-card [style.overflow]="'auto'" [style.height.px]="'739'">
-        <mat-card-content>
-            <div *ngFor="let note of tableData; let i = index;">
-                <app-note (reloadParent)="loadNotes()" [note]="note"></app-note>
-                <mat-divider></mat-divider>
-            </div>
-           
-        </mat-card-content>
+        <div *ngIf="tableData.length != '0'">
+            <mat-card-content>
+                <div *ngFor="let note of tableData; let i = index;">
+                    <app-note (reloadParent)="loadNotes()" [note]="note"></app-note>
+                    <mat-divider></mat-divider>
+                </div>
+            
+            </mat-card-content>
+        </div>
+        <div *ngIf="tableData.length == '0'">No data</div>
+        
     </mat-card> 
 </div>

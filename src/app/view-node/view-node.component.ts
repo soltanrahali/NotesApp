@@ -19,6 +19,8 @@ export class ViewNodeComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    console.log('view ntoe')
+    console.log(this.ifdata)
   }  
 
   deleteNote(){ 

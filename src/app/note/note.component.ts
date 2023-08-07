@@ -30,14 +30,24 @@ export class NoteComponent implements OnInit {
   ngOnInit(): void {
     console.log("Inside of Note compoent")
     console.log(this.note)
-    if(this.note.favorite) {
+    if(this.note.favorite == 'true' || this.note.favorite == true) {
       this.favoriteButton = 'Remove from Favorite'
+    }else{
+      this.favoriteButton = 'Add to Favorite'
     }
   }
 
   favChange(){
     const vaf = !this.note.favorite + '';
-    this.noteService.favoriteChange(this.note.noteId, vaf).subscribe((data: any) => {
+    console.log(this.note)
+    console.log("Change fav val")
+    if(this.note.favorite == true || this.note.favorite == 'true'){
+      this.note.favorite = 'false';
+    }else{
+      this.note.favorite = 'true'
+    }
+    console.log(this.note)
+    this.noteService.favoriteChange(this.note).subscribe((data: any) => {
       console.log("Data Node is -->")
       console.log(data)
       this.reloadParent.emit();
@@ -46,13 +56,13 @@ export class NoteComponent implements OnInit {
   }
 
   deleteNote(){
-    this.noteService.deleteNote(this.note.noteId).subscribe((data: any) => {
+    this.noteService.deleteNote(this.note.id).subscribe((data: any) => {
       this.reloadParent.emit();
     })
   }
 
   editNote(){
-    this.router.navigateByUrl(`/home/edit/${this.note.noteId}`);   
+    this.router.navigateByUrl(`/home/edit/${this.note.id}`);   
   }
 
   viewNote(){

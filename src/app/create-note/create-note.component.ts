@@ -16,6 +16,7 @@ export class CreateNoteComponent implements OnInit {
     title: new FormControl(''),
     body: new FormControl(''),
     favorite: new FormControl(''),
+    date: new FormControl('')
   });
 
   constructor(
@@ -41,28 +42,35 @@ export class CreateNoteComponent implements OnInit {
     console.log("note form value is")
     console.log(this.noteForm.value)
     const id = this.route.snapshot.params['id'];
-    if(id) {
-      this.noteService.editNote(id,this.noteForm.value).subscribe((data: any) => {
-        console.log("Success")
-        console.log(data)
-        this.router.navigate(["home"], )
-      },
-      error => {
-        console.log("Error")
-        console.log(error)
-      })
-    }else{
-      this.noteService.createNote(this.noteForm.value).subscribe((data: any) => {
-        console.log("Success")
-        console.log(data)
-        this.router.navigate(["home"], )
-      },
-      error => {
-        console.log("Error")
-        console.log(error)
-      })
-    }
+    const current = new Date();
+    console.log("Current val " + current)
+    this.noteForm.controls['date'].setValue(new Date());
+    
+
+          if(id) {
+            this.noteService.editNote(id,this.noteForm.value).subscribe((data: any) => {
+              console.log("Success")
+              console.log(data)
+              this.router.navigate(["home"], )
+            },
+            error => {
+              console.log("Error")
+              console.log(error)
+            })
+          }else{
+            this.noteService.createNote(this.noteForm.value).subscribe((data: any) => {
+              console.log("Success")
+              console.log(data)
+              this.router.navigate(["home"], )
+            },
+            error => {
+              console.log("Error")
+              console.log(error)
+            })
+          }
+    
   }
+
 }
 
 
