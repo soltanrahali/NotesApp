@@ -28,45 +28,9 @@
   ],
   "note_note": [
     {
-      "user_id": 1,
-      "title": "user title 3",
-      "favorite": false,
-      "body": "note body",
-      "id": 2,
-      "date": "2023-08-07T22:23:58.748Z"
-    },
-    {
-      "title": "user title 4",
-      "body": "note body",
-      "favorite": "false",
-      "date": "2023-08-06T22:33:12.987Z",
-      "id": 4
-    },
-    {
-      "title": "nn zz 999",
-      "body": "nn zz 999",
-      "favorite": "true",
-      "date": "2023-08-07T22:23:58.748Z",
-      "id": 5
-    },
-    {
-      "title": "kkk ",
-      "body": "kkk",
-      "favorite": "true",
-      "date": "2023-08-07T22:26:39.836Z",
-      "id": 6
-    },
-    {
-      "title": "gggggg",
-      "body": "gggg",
-      "favorite": "true",
-      "date": "2023-08-06T22:28:01.084Z",
-      "id": 7
-    },
-    {
       "title": "dddd",
       "body": "dddddk",
-      "favorite": "true",
+      "favorite": "false",
       "date": "2023-08-07T23:32:36.832Z",
       "id": 8
     },
@@ -84,6 +48,5 @@
       "date": "2023-08-07T23:03:59.685Z",
       "id": 11
     }
-  ],
-  "recent": []
+  ]
 }
