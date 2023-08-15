@@ -19,12 +19,18 @@
             <div>
                 <label for="lname"><b>Favorite</b></label>
             </div>
-             <div class="fav">
+             <!-- <div class="fav">
                 <mat-radio-group aria-label="Select an option" formControlName="favorite">
                     <mat-radio-button value="true">Yes</mat-radio-button>
                     <mat-radio-button value="false">No</mat-radio-button>
                 </mat-radio-group>
+            </div> -->
+            <div class="fav">
+                <mat-slide-toggle aria-label="Toggle favorite" formControlName="favorite">
+                    Mark as Favorite
+                </mat-slide-toggle>
             </div>
+            
             <hr>
         
             <!-- <button type="submit" (click)="createNote()" class="registerbtn">Create</button> -->
