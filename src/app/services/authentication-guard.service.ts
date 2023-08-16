@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
-import { endpoint } from "../enum/endpoint";
 import { BehaviorSubject, Observable } from "rxjs"; 
 
 @Injectable({
@@ -23,7 +22,7 @@ export class AuthenticationGaurd {
     }
 
     registerUser(user: any){
-        const url = this.backend + endpoint.REGISTER_USER;
+       // const url = this.backend + endpoint.REGISTER_USER;
         return this.httpClient.post('http://localhost:3000/users', user,  { responseType: 'json' });
     }
 
@@ -39,8 +38,8 @@ export class AuthenticationGaurd {
     }
 
     logoutUser(){
-        const url = this.backend + endpoint.LOGOUT_USER;
-        return this.httpClient.get(url);
+        // const url = this.backend + endpoint.LOGOUT_USER;
+        // return this.httpClient.get(url);
     }
 
     removeUserInfoUpOnLogout(){

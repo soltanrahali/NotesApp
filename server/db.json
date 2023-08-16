@@ -28,20 +28,6 @@
   ],
   "note_note": [
     {
-      "title": "dddd",
-      "body": "dddddk",
-      "favorite": "false",
-      "date": "2023-08-07T23:32:36.832Z",
-      "id": 8
-    },
-    {
-      "title": "tttt",
-      "body": "tttt",
-      "favorite": "false",
-      "date": "2023-08-07T22:33:12.987Z",
-      "id": 10
-    },
-    {
       "title": "ooooo",
       "body": "ooooooooz",
       "favorite": "true",
@@ -51,7 +37,7 @@
     {
       "title": "a",
       "body": "a",
-      "favorite": "true",
+      "favorite": "false",
       "date": "2023-08-15T04:57:24.148Z",
       "id": 12
     }

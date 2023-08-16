@@ -4,7 +4,6 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { DataShareService } from "../data-share.service";
-import { endpoint } from "../enum/endpoint";
 
 @Injectable({
     providedIn: 'root'
